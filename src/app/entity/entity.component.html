@@ -1,0 +1,125 @@
+<form action="" [formGroup]="entitiesForm" class="container">
+  <div class="row">
+    <div>
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Entity Recognition</mat-label>
+        <textarea (keyup.enter)="search($event)"  matInput class="text-entity-recognition" placeholder="Digita il tuo testo"></textarea>
+      </mat-form-field>
+    </div>
+
+    <p>{{ entityRecognized }}</p>
+
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel  class="my-3">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            EMOTIVE
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div formArrayName="EMOTIVE" *ngFor="let emotiveField of getEmotives.controls; let i=index">
+          <div class="col-3">
+            <input [formControlName]="i" class="my-3" /> <button class="btn btn-danger mx-3" (click)="removeItem('EMOTIVE', i)">X</button>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-success" (click)="addInput('EMOTIVE')">
+            +
+          </button>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel  class="my-3">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            MEASUREMENT
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div formArrayName="MEASUREMENT" *ngFor="let measurementField of getMeasurements.controls; let i=index">
+          <div class="col-3">
+            <input [formControlName]="i" class="my-3" /> <button class="btn btn-danger mx-3" (click)="removeItem('MEASUREMENT', i)">X</button>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-success" (click)="addInput('MEASUREMENT')">
+            +
+          </button>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel  class="my-3">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            DAY
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div formArrayName="DAY" *ngFor="let dayField of getDays.controls; let i=index">
+          <div class="col-3">
+            <input [formControlName]="i" class="my-3" /> <button class="btn btn-danger mx-3" (click)="removeItem('DAY', i)">X</button>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-success" (click)="addInput('DAY')">
+            +
+          </button>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel  class="my-3">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            TEMPORAL
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div formArrayName="TEMPORAL" *ngFor="let temporalField of getTemporals.controls; let i=index">
+          <div class="col-3">
+            <input [formControlName]="i" class="my-3" /> <button class="btn btn-danger mx-3" (click)="removeItem('TEMPORAL', i)">X</button>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-success" (click)="addInput('TEMPORAL')">
+            +
+          </button>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel  class="my-3">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            ROLE
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div formArrayName="ROLE" *ngFor="let roleField of getRoles.controls; let i=index">
+          <div class="col-3">
+            <input [formControlName]="i" class="my-3" /> <button class="btn btn-danger mx-3" (click)="removeItem('ROLE', i)">X</button>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-success" (click)="addInput('ROLE')">
+            +
+          </button>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel  class="my-3">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            FEELING
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div formArrayName="FEELING" *ngFor="let feelingField of getFeelings.controls; let i=index">
+          <div class="col-3">
+            <input [formControlName]="i" class="my-3" /> <button class="btn btn-danger mx-3" (click)="removeItem('FEELING', i)">X</button>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-success" (click)="addInput('FEELING')">
+            +
+          </button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+    <button class="btn btn-info mt-3" (click)="save()">
+      Salva
+    </button>
+  </div>
+
+
+</form>
+
